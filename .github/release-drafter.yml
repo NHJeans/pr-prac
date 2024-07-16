@@ -1,21 +1,20 @@
-name: Release Drafter
-
-# Components of the release notes
+name-template: 'v$RESOLVED_VERSION 🌈'
+tag-template: 'v$RESOLVED_VERSION'
 categories:
   - title: '🚀 Features'
     labels:
       - 'feature'
+      - 'enhancement'
   - title: '🐛 Bug Fixes'
     labels:
+      - 'fix'
+      - 'bugfix'
       - 'bug'
-  - title: '🧹 Chores'
-    labels:
-      - 'chore'
+  - title: '🧰 Maintenance'
+    label: 'chore'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
-version-template: 'v$NEXT_PATCH_VERSION'
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 template: |
-  ## What's Changed
+  ## Changes
 
   $CHANGES
-
-  **Full Changelog**: https://github.com/$REPO/compare/$PREVIOUS_TAG...$NEW_TAG
